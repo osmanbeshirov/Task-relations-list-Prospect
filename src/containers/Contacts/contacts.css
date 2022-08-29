@@ -1,0 +1,26 @@
+.contacts {
+  width: 70%;
+  height: 400px;
+  margin: auto;
+  margin-top: 4rem;
+}
+.contacts .contacts-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.contacts .contacts-table {
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.contacts .ant-table-cell:last-child svg {
+  font-size: 20px;
+}
+.contacts .ant-table-cell:last-child svg:hover {
+  cursor: pointer;
+}
+.contacts .ant-table-cell:last-child {
+  display: flex;
+  justify-content: space-around;
+  height: 60px;
+  align-items: center;
+}/*# sourceMappingURL=contacts.css.map */

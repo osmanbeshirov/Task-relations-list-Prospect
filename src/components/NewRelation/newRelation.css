@@ -1,0 +1,10 @@
+.new-relation-wrapper {
+  background-color: rgba(218, 244, 219, 0.806);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}/*# sourceMappingURL=newRelation.css.map */
