@@ -1,6 +1,7 @@
 import React from 'react'
 
 import '../Contacts/contacts.css'
+import { Link, Outlet } from 'react-router-dom'
 import { Space, Table, Tag } from 'antd';
 import { InfoCircleTwoTone, EditTwoTone, DeleteTwoTone } from '@ant-design/icons';
 
@@ -43,7 +44,7 @@ export default function Contacts() {
             surname: "Brown",
             dadname: 'Newman',
             specality: 'IT engeneer',
-            actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
+            actions: <><InfoCircleTwoTone /> <Link to={'/contacts/edit/1'}><EditTwoTone /></Link>  <DeleteTwoTone /> </>
         },
         {
             key: '2',
@@ -74,8 +75,12 @@ export default function Contacts() {
 
     return (
         <div className='contacts'>
-            <h1 className='contacts-header'>Əlaqələr siyahısı</h1>
-            <Table className='contacts-table' columns={columns} dataSource={data} />
+            <div className='contacts-main'>
+                <h1 className='contacts-header'>Əlaqələr siyahısı</h1>
+                <Table className='contacts-table' columns={columns} dataSource={data} />
+            </div>
+
         </div>
+
     )
 }

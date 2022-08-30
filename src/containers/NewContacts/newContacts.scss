@@ -15,30 +15,4 @@ $white: #fff;
         color: #fff;
     }
 
-    .ant-form {
-        display: flex;
-        margin-right: 50px;
-
-        .left-form {
-            margin-right: 120px;
-        }
-
-        .ant-input {
-            width: 250px;
-        }
-
-        .ant-form-item-label>label {
-            color: $white;
-        }
-
-        span.ant-radio+* {
-            color: $white;
-        }
-
-    }
-
-
-
-
-
 }

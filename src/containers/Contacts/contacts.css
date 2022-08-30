@@ -1,12 +1,22 @@
 .contacts {
-  width: 70%;
-  height: 400px;
+  width: 100%;
+  height: 100vh;
   margin: auto;
-  margin-top: 4rem;
+  background-color: #4b80bd;
+}
+.contacts .contacts-table {
+  background-color: #e5e5e5;
+  border-radius: 50px !important;
+}
+.contacts .contacts-main {
+  width: 70%;
+  margin: auto;
+  padding-top: 2rem;
 }
 .contacts .contacts-header {
   text-align: center;
   margin-bottom: 3rem;
+  color: #fff;
 }
 .contacts .contacts-table {
   border-radius: 10px;

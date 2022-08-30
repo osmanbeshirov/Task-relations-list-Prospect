@@ -1,0 +1,16 @@
+.ant-form {
+  display: flex;
+  margin-right: 50px;
+}
+.ant-form .left-form {
+  margin-right: 120px;
+}
+.ant-form .ant-input {
+  width: 250px;
+}
+.ant-form .ant-form-item-label > label {
+  color: #fff;
+}
+.ant-form span.ant-radio + * {
+  color: #fff;
+}/*# sourceMappingURL=mainForm.css.map */
