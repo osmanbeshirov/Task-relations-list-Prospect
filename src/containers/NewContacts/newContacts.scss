@@ -1,0 +1,44 @@
+$white: #fff;
+
+.new-contacts {
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    background-color: #785fa0;
+
+    .title {
+        margin-bottom: 30px;
+        color: #fff;
+    }
+
+    .ant-form {
+        display: flex;
+        margin-right: 50px;
+
+        .left-form {
+            margin-right: 120px;
+        }
+
+        .ant-input {
+            width: 250px;
+        }
+
+        .ant-form-item-label>label {
+            color: $white;
+        }
+
+        span.ant-radio+* {
+            color: $white;
+        }
+
+    }
+
+
+
+
+
+}

@@ -23,4 +23,8 @@
   justify-content: space-around;
   height: 60px;
   align-items: center;
+}
+
+.ant-table-pagination-right {
+  justify-content: center;
 }/*# sourceMappingURL=contacts.css.map */

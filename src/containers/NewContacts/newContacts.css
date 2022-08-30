@@ -1,1 +1,30 @@
-/*# sourceMappingURL=newContacts.css.map */
+.new-contacts {
+  width: 100%;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  background-color: #785fa0;
+}
+.new-contacts .title {
+  margin-bottom: 30px;
+  color: #fff;
+}
+.new-contacts .ant-form {
+  display: flex;
+  margin-right: 50px;
+}
+.new-contacts .ant-form .left-form {
+  margin-right: 120px;
+}
+.new-contacts .ant-form .ant-input {
+  width: 250px;
+}
+.new-contacts .ant-form .ant-form-item-label > label {
+  color: #fff;
+}
+.new-contacts .ant-form span.ant-radio + * {
+  color: #fff;
+}/*# sourceMappingURL=newContacts.css.map */
