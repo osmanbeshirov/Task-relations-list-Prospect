@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { Table } from 'antd';
 import { InfoCircleTwoTone, EditTwoTone, DeleteTwoTone } from '@ant-design/icons';
 
-import Context from '../../context/context'
+import ContactContext from '../../context/ContactContext';
 
 
 export default function Contacts() {
@@ -203,21 +203,17 @@ export default function Contacts() {
 
     ];
 
-
-    const { message, setName } = useContext(Context)
-
-    console.log(message)
+    const { name, addToTable } = useContext(ContactContext)
 
 
+    // console.log(name)
 
     return (
         <div className='contacts'>
             <div className='contacts-main'>
                 <h1 className='contacts-header'>Əlaqələr siyahısı</h1>
                 <Table className='contacts-table' columns={columns} dataSource={data} />
-
             </div>
-
         </div>
 
     )

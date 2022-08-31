@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import '../Header/header.css'
 
 import { Link } from 'react-router-dom'
@@ -7,8 +7,13 @@ import { Menu } from 'antd'
 import { ContactsOutlined } from '@ant-design/icons';
 import NewRelation from '../../components/NewRelation/NewRelation';
 
+import ContactContext from '../../context/ContactContext';
+
 
 export default function Header() {
+
+    const { name, addToTable } = useContext(ContactContext);
+
     return (
         <div>
             <Menu className='header-wrapper' mode="horizontal">
@@ -17,7 +22,7 @@ export default function Header() {
                         Kontaktlar
                     </Menu.Item></Link>
 
-                <Menu.Item key="new_contact">
+                <Menu.Item onClick={() => addToTable(name)} key="new_contact">
                     <NewRelation />
                 </Menu.Item>
             </Menu>

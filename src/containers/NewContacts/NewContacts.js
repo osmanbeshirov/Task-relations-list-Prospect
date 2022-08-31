@@ -3,14 +3,15 @@ import MainForm from '../../components/MainForm/MainForm'
 
 import '../NewContacts/newContacts.css'
 
-import Context from '../../context/context'
+import ContactContext from '../../context/ContactContext'
+
 
 
 export default function NewContacts() {
 
-    // const { name } = useContext(Context)
+    const { name } = useContext(ContactContext)
 
-    // console.log(name)
+    console.log(name)
 
     return (
         <div className='new-contacts'>
