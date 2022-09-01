@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 
 import { Button, Form, Input, Select, Radio, Switch } from 'antd';
 
@@ -26,11 +26,16 @@ const validateMessages = {
 /* eslint-enable no-template-curly-in-string */
 
 export default function MainForm() {
+
+    const [id, setId] = useState(0)
     const { addToTable } = useContext(ContactContext)
 
 
+
+
     const onFinish = (values) => {
-        addToTable(values)
+        addToTable(values, id)
+       
     };
 
     return (
@@ -98,7 +103,7 @@ export default function MainForm() {
                     <Input.TextArea />
                 </Form.Item>
                 <Form.Item
-                    initialValue={'it'}
+                    initialValue={'IT mühəndis'}
 
                     name={['user', 'specality']}
                     label="Vəzifə"
@@ -109,10 +114,10 @@ export default function MainForm() {
                     ]}>
 
                     <Select >
-                        <Select.Option value="it">IT engeneer</Select.Option>
-                        <Select.Option value="project">Project Manager</Select.Option>
-                        <Select.Option value="data">Data analytc</Select.Option>
-                        <Select.Option value="marketing">Marketing director</Select.Option>
+                        <Select.Option value="IT mühəndis">IT mühəndis</Select.Option>
+                        <Select.Option value="Proyekt meneceri">Proyekt meneceri</Select.Option>
+                        <Select.Option value="Data analitik">Data analitik</Select.Option>
+                        <Select.Option value="Marketinq direktoru">Marketinq direktoru</Select.Option>
                     </Select>
                 </Form.Item>
 
@@ -148,6 +153,6 @@ export default function MainForm() {
                 </Form.Item>
 
             </div>
-        </Form>
+        </Form >
     )
 }

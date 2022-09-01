@@ -10,6 +10,14 @@ import ContactContext from '../../context/ContactContext';
 
 export default function Contacts() {
 
+    const { contacts } = useContext(ContactContext)
+
+    const data = contacts.map(contact => {
+        return Object.assign(contact.contacts.contact.user, { id: contact.contacts.id + 1, actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </> })
+    })
+
+    console.log(data)
+    // contact.contacts.id
     const columns = [
         {
             title: 'Ad',
@@ -39,174 +47,181 @@ export default function Contacts() {
         }
     ]
 
-    const data = [
-        {
-            key: '1',
-            name: 'John',
-            surname: "Brown",
-            dadname: 'Newman',
-            specality: 'IT engeneer',
-            actions: <><InfoCircleTwoTone /> <Link to={'/contacts/edit/1'}><EditTwoTone /></Link>  <DeleteTwoTone /> </>
-        },
-        // {
-        //     key: '2',
-        //     name: 'John',
-        //     surname: "Brown",
-        //     dadname: 'Newman',
-        //     specality: 'IT engeneer',
-        //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
-        // },
-        // {
-        //     key: '3',
-        //     name: 'John',
-        //     surname: "Brown",
-        //     dadname: 'Newman',
-        //     specality: 'IT engeneer',
-        //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
-        // },
-        // {
-        //     key: '4',
-        //     name: 'John',
-        //     surname: "Brown",
-        //     dadname: 'Newman',
-        //     specality: 'IT engeneer',
-        //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
-        // },
-        // {
-        //     key: '5',
-        //     name: 'John',
-        //     surname: "Brown",
-        //     dadname: 'Newman',
-        //     specality: 'IT engeneer',
-        //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
-        // },
-        // {
-        //     key: '6',
-        //     name: 'John',
-        //     surname: "Brown",
-        //     dadname: 'Newman',
-        //     specality: 'IT engeneer',
-        //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
-        // },
-        // {
-        //     key: '7',
-        //     name: 'John',
-        //     surname: "Brown",
-        //     dadname: 'Newman',
-        //     specality: 'IT engeneer',
-        //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
-        // },
-        // {
-        //     key: '8',
-        //     name: 'John',
-        //     surname: "Brown",
-        //     dadname: 'Newman',
-        //     specality: 'IT engeneer',
-        //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
-        // },
-        // {
-        //     key: '9',
-        //     name: 'John',
-        //     surname: "Brown",
-        //     dadname: 'Newman',
-        //     specality: 'IT engeneer',
-        //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
-        // },
-        // {
-        //     key: '10',
-        //     name: 'John',
-        //     surname: "Brown",
-        //     dadname: 'Newman',
-        //     specality: 'IT engeneer',
-        //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
-        // },
-        // {
-        //     key: '11',
-        //     name: 'John',
-        //     surname: "Brown",
-        //     dadname: 'Newman',
-        //     specality: 'IT engeneer',
-        //     actions: <><InfoCircleTwoTone /> <Link to={'/contacts/edit/1'}><EditTwoTone /></Link>  <DeleteTwoTone /> </>
-        // },
-        // {
-        //     key: '12',
-        //     name: 'John',
-        //     surname: "Brown",
-        //     dadname: 'Newman',
-        //     specality: 'IT engeneer',
-        //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
-        // },
-        // {
-        //     key: '13',
-        //     name: 'John',
-        //     surname: "Brown",
-        //     dadname: 'Newman',
-        //     specality: 'IT engeneer',
-        //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
-        // },
-        // {
-        //     key: '14',
-        //     name: 'John',
-        //     surname: "Brown",
-        //     dadname: 'Newman',
-        //     specality: 'IT engeneer',
-        //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
-        // },
-        // {
-        //     key: '15',
-        //     name: 'John',
-        //     surname: "Brown",
-        //     dadname: 'Newman',
-        //     specality: 'IT engeneer',
-        //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
-        // },
-        // {
-        //     key: '16',
-        //     name: 'John',
-        //     surname: "Brown",
-        //     dadname: 'Newman',
-        //     specality: 'IT engeneer',
-        //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
-        // },
-        // {
-        //     key: '17',
-        //     name: 'John',
-        //     surname: "Brown",
-        //     dadname: 'Newman',
-        //     specality: 'IT engeneer',
-        //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
-        // },
-        // {
-        //     key: '18',
-        //     name: 'John',
-        //     surname: "Brown",
-        //     dadname: 'Newman',
-        //     specality: 'IT engeneer',
-        //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
-        // },
-        // {
-        //     key: '19',
-        //     name: 'John',
-        //     surname: "Brown",
-        //     dadname: 'Newman',
-        //     specality: 'IT engeneer',
-        //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
-        // },
-        // {
-        //     key: '20',
-        //     name: 'John',
-        //     surname: "Osman",
-        //     dadname: 'Newman',
-        //     specality: 'IT engeneer',
-        //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
-        // },
+    // const myData = contacts.map((contact) => {
+    //     return contact.contacts.user
+    // });
 
-    ];
+    const myData = []
+    // console.log(myData)
 
-    const { contacts } = useContext(ContactContext)
+    // const data = [
+    // {
+    //     key: '1',
+    //     name: 'John',
+    //     surname: "Brown",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <Link to={'/contacts/edit/1'}><EditTwoTone /></Link>  <DeleteTwoTone /> </>
+    // },
+    // {
+    //     key: '2',
+    //     name: 'John',
+    //     surname: "Brown",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
+    // },
+    // {
+    //     key: '3',
+    //     name: 'John',
+    //     surname: "Brown",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
+    // },
+    // {
+    //     key: '4',
+    //     name: 'John',
+    //     surname: "Brown",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
+    // },
+    // {
+    //     key: '5',
+    //     name: 'John',
+    //     surname: "Brown",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
+    // },
+    // {
+    //     key: '6',
+    //     name: 'John',
+    //     surname: "Brown",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
+    // },
+    // {
+    //     key: '7',
+    //     name: 'John',
+    //     surname: "Brown",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
+    // },
+    // {
+    //     key: '8',
+    //     name: 'John',
+    //     surname: "Brown",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
+    // },
+    // {
+    //     key: '9',
+    //     name: 'John',
+    //     surname: "Brown",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
+    // },
+    // {
+    //     key: '10',
+    //     name: 'John',
+    //     surname: "Brown",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
+    // },
+    // {
+    //     key: '11',
+    //     name: 'John',
+    //     surname: "Brown",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <Link to={'/contacts/edit/1'}><EditTwoTone /></Link>  <DeleteTwoTone /> </>
+    // },
+    // {
+    //     key: '12',
+    //     name: 'John',
+    //     surname: "Brown",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
+    // },
+    // {
+    //     key: '13',
+    //     name: 'John',
+    //     surname: "Brown",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
+    // },
+    // {
+    //     key: '14',
+    //     name: 'John',
+    //     surname: "Brown",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
+    // },
+    // {
+    //     key: '15',
+    //     name: 'John',
+    //     surname: "Brown",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
+    // },
+    // {
+    //     key: '16',
+    //     name: 'John',
+    //     surname: "Brown",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
+    // },
+    // {
+    //     key: '17',
+    //     name: 'John',
+    //     surname: "Brown",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
+    // },
+    // {
+    //     key: '18',
+    //     name: 'John',
+    //     surname: "Brown",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
+    // },
+    // {
+    //     key: '19',
+    //     name: 'John',
+    //     surname: "Brown",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
+    // },
+    // {
+    //     key: '20',
+    //     name: 'John',
+    //     surname: "Osman",
+    //     dadname: 'Newman',
+    //     specality: 'IT engeneer',
+    //     actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </>
+    // },
+
+    // ];
 
 
-    console.log(contacts)
+
+
+
 
     return (
         <div className='contacts'>

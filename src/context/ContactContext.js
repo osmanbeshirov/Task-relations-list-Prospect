@@ -7,11 +7,11 @@ const ContactContext = createContext(initialState);
 export const ContactProvider = ({ children }) => {
     const [state, dispatch] = useReducer(contactReducer, initialState)
 
-    const addToTable = (values) => {
+    const addToTable = (contact, id) => {
         dispatch({
             type: "ADD_TO_TABLE",
             payload: {
-                contacts: values
+                contacts: { contact, id }
             }
         })
     }
@@ -19,6 +19,7 @@ export const ContactProvider = ({ children }) => {
     const data = {
         contacts: state.contacts,
         addToTable,
+        id: state.id
     }
 
     return <ContactContext.Provider value={data}>{children}</ContactContext.Provider>

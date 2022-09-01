@@ -1,14 +1,15 @@
 export const initialState = {
-    contacts: []
+    contacts: [],
+    id: 0
 }
 
 const contactReducer = (state, action) => {
     switch (action.type) {
         case 'ADD_TO_TABLE':
-            console.log("ADD_TO_TABLE", action.payload)
+            console.log(action.payload)
             return {
                 ...state,
-                contacts: [...state.contacts, action.payload]
+                contacts: [action.payload, ...state.contacts]
             }
 
         case 'EDIT_TO_CONTACT':
