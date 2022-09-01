@@ -7,11 +7,8 @@ import ContactContext from '../../context/ContactContext'
 
 
 
+
 export default function NewContacts() {
-
-    const { name } = useContext(ContactContext)
-
-    console.log(name)
 
     return (
         <div className='new-contacts'>

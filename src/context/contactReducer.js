@@ -1,6 +1,5 @@
 export const initialState = {
-    contacts: [],
-    name: 'Osman Bashirov'
+    contacts: []
 }
 
 const contactReducer = (state, action) => {
@@ -9,13 +8,14 @@ const contactReducer = (state, action) => {
             console.log("ADD_TO_TABLE", action.payload)
             return {
                 ...state,
-                products: action.payload
+                contacts: [...state.contacts, action.payload]
             }
+
         case 'EDIT_TO_CONTACT':
             console.log("EDIT_TO_CONTACT", action.payload)
             return {
                 ...state,
-                products: action.payload
+                contacts: action.payload
             }
 
         default:

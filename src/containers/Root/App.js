@@ -1,15 +1,15 @@
 import './App.css';
 
 import { Row, Col } from 'antd'
-import Header from './containers/Header/Header';
-import Contacts from './containers/Contacts/Contacts';
+import Header from '../Header/Header';
+import Contacts from '../Contacts/Contacts';
 
 import { Routes, Route, Navigate } from 'react-router-dom'
-import NewContacts from './containers/NewContacts/NewContacts';
-import EditContacts from './containers/EditContacts/EditContacts';
-import ContactsLayout from './containers/Contacts/ContactsLayout';
+import NewContacts from '../NewContacts/NewContacts';
+import EditContacts from '../EditContacts/EditContacts';
+import ContactsLayout from '../Contacts/ContactsLayout';
 
-import { ContactProvider } from './context/ContactContext';
+import { ContactProvider } from '../../context/ContactContext';
 
 function App() {
 

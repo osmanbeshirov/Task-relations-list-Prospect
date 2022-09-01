@@ -203,10 +203,10 @@ export default function Contacts() {
 
     ];
 
-    const { name, addToTable } = useContext(ContactContext)
+    const { contacts } = useContext(ContactContext)
 
 
-    // console.log(name)
+    console.log(contacts)
 
     return (
         <div className='contacts'>

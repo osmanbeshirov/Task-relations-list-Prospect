@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { Button, Form, Input, Select, Radio, Switch } from 'antd';
 
 import '../MainForm/mainForm.css'
+
+import ContactContext from '../../context/ContactContext';
 
 const layout = {
     labelCol: {
@@ -24,9 +26,13 @@ const validateMessages = {
 /* eslint-enable no-template-curly-in-string */
 
 export default function MainForm() {
+    const { addToTable } = useContext(ContactContext)
+
+
     const onFinish = (values) => {
-        console.log(values);
+        addToTable(values)
     };
+
     return (
         <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
             <div className='left-form'>
