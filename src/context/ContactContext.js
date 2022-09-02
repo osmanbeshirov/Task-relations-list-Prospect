@@ -7,21 +7,26 @@ const ContactContext = createContext(initialState);
 export const ContactProvider = ({ children }) => {
     const [state, dispatch] = useReducer(contactReducer, initialState)
 
-    const addToTable = (contact, id) => {
+    const addToTable = (contact) => {
 
         dispatch({
             type: "ADD_TO_TABLE",
-            payload: {
-                contacts: {
-                    contact, id
-                }
-            }
+            payload: [contact]
+
+        })
+    }
+
+    const deleteFromTable = (contact) => {
+        dispatch({
+            type: "DELETE_FROM_TABLE",
+            payload: contact
         })
     }
 
     const data = {
         contacts: state.contacts,
         addToTable,
+        deleteFromTable
 
     }
 

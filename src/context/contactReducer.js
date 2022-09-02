@@ -1,17 +1,40 @@
+import { InfoCircleTwoTone, EditTwoTone, DeleteTwoTone } from '@ant-design/icons';
+import { useContext } from 'react';
+import ContactContext from './ContactContext';
+
 export const initialState = {
     contacts: [],
 
 }
 
-const contactReducer = (state, action) => {
+
+const ContactReducer = (state, action) => {
+
+    const { deleteFromTable } = useContext(ContactContext);
+   
+
     switch (action.type) {
         case 'ADD_TO_TABLE':
 
+
+
+            const myContacts = action.payload.map(contact => {
+
+                return Object.assign({}, contact.user, { id: 1, actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone onClick={() => deleteFromTable(contact.user)} /> </> })
+            })
+
+            // console.log(myContacts)
+
             return {
-
                 ...state,
-                contacts: [action.payload, ...state.contacts]
+                contacts: [{ user: myContacts[0] }, ...state.contacts]
+            }
 
+        case "DELETE_FROM_TABLE":
+            console.log('DELETE_FROM_TABLE', action.payload)
+            return {
+                // ...state,
+                // contacts: []
             }
 
 
@@ -27,4 +50,4 @@ const contactReducer = (state, action) => {
     }
 }
 
-export default contactReducer;
+export default ContactReducer;

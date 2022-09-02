@@ -7,6 +7,7 @@ import '../MainForm/mainForm.css'
 import ContactContext from '../../context/ContactContext';
 
 import useLocalStorage from '../../hooks/useLocalStorage';
+import { useNavigate } from 'react-router-dom';
 
 const layout = {
     labelCol: {
@@ -32,19 +33,24 @@ export default function MainForm() {
 
     const { addToTable } = useContext(ContactContext)
 
-    const [id, setId] = useLocalStorage('id', 0)
+    const navigate = useNavigate()
 
-    const handleSubmit = () => {
-        setId(id + 1)
-    }
+    // const [id, setId] = useLocalStorage('id', 0)
+
+    // const handleSubmit = () => {
+    //     setId(id + 1);
+
+    // }
 
     const onFinish = (values) => {
 
-        addToTable(values, id)
+        addToTable(values)
+
+        navigate('/contacts', { replace: true })
     };
 
     return (
-        <Form onSubmitCapture={handleSubmit} {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
+        <Form  {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
             <div className='left-form'>
                 <Form.Item
                     name={['user', 'name']}
