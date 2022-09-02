@@ -1,7 +1,6 @@
 import { React, useContext } from 'react'
 
 import '../Contacts/contacts.css'
-import { Link } from 'react-router-dom'
 import { Table } from 'antd';
 import { InfoCircleTwoTone, EditTwoTone, DeleteTwoTone } from '@ant-design/icons';
 
@@ -12,18 +11,19 @@ export default function Contacts() {
 
     const { contacts } = useContext(ContactContext)
 
+
     const data = contacts.map(contact => {
-        return Object.assign(contact.contacts.contact.user, { id: contact.contacts.id + 1, actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </> })
+        return Object.assign(contact.contacts.contact.user, { id: contact.contacts.id, actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone /> </> })
     })
 
     console.log(data)
-    // contact.contacts.id
+
     const columns = [
         {
             title: 'Ad',
             dataIndex: 'name',
             key: 'name',
-            render: (text) => <a>{text}</a>,
+
         },
         {
             title: 'Soyad',
@@ -51,7 +51,7 @@ export default function Contacts() {
     //     return contact.contacts.user
     // });
 
-    const myData = []
+
     // console.log(myData)
 
     // const data = [
@@ -217,9 +217,6 @@ export default function Contacts() {
     // },
 
     // ];
-
-
-
 
 
 

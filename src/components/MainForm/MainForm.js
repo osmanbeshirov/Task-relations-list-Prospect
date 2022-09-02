@@ -1,10 +1,12 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 
 import { Button, Form, Input, Select, Radio, Switch } from 'antd';
 
 import '../MainForm/mainForm.css'
 
 import ContactContext from '../../context/ContactContext';
+
+import useLocalStorage from '../../hooks/useLocalStorage';
 
 const layout = {
     labelCol: {
@@ -27,19 +29,22 @@ const validateMessages = {
 
 export default function MainForm() {
 
-    const [id, setId] = useState(0)
+
     const { addToTable } = useContext(ContactContext)
 
+    const [id, setId] = useLocalStorage('id', 0)
 
-
+    const handleSubmit = () => {
+        setId(id + 1)
+    }
 
     const onFinish = (values) => {
+
         addToTable(values, id)
-       
     };
 
     return (
-        <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
+        <Form onSubmitCapture={handleSubmit} {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
             <div className='left-form'>
                 <Form.Item
                     name={['user', 'name']}
