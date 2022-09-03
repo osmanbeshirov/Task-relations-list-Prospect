@@ -1,30 +1,26 @@
 import { React, useContext } from 'react'
 
+import { Link } from 'react-router-dom';
+
 import '../Contacts/contacts.css'
 import { Table } from 'antd';
-// import { InfoCircleTwoTone, EditTwoTone, DeleteTwoTone } from '@ant-design/icons';
+import { InfoCircleTwoTone, EditTwoTone, DeleteTwoTone } from '@ant-design/icons';
 
 import ContactContext from '../../context/ContactContext';
+import { render } from '@testing-library/react';
 
 
 export default function Contacts() {
 
-    const { contacts } = useContext(ContactContext)
-
-   
+    const { contacts, deleteFromTable } = useContext(ContactContext)
 
     const data = contacts.map(contact => {
-        return contact.user
+        Object.assign(contact.user, { actions: <><InfoCircleTwoTone /> <Link to='edit/5'><EditTwoTone /></Link>  <DeleteTwoTone onClick={() => deleteFromTable(contact.user)} /> </> })
+
+        return contact.user;
     })
 
-    console.log(data)
-    // const myUsers = contacts.map(contact => {
-    //     return contact.contacts.contact.user
-    // })
-
-    // const data = myUsers.map(user => {
-    //     return Object.assign(user, { id: user.id, actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone onClick={() => deleteFromTable(user)} /> </> })
-    // })
+    console.log(contacts);
 
 
     const columns = [
