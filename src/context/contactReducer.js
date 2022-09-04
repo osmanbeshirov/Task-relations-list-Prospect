@@ -14,15 +14,13 @@ const ContactReducer = (state, action) => {
                 return newUser
             })
 
-            console.log(myContacts)
-
             return {
                 ...state,
                 contacts: [{ user: myContacts[0] }, ...state.contacts]
             }
 
         case "DELETE_FROM_TABLE":
-            console.log('DELETE_FROM_TABLE', action.payload)
+            // console.log('DELETE_FROM_TABLE', action.payload)
 
             const filterContacts = state.contacts.map(contact => {
                 return contact.user
@@ -30,22 +28,15 @@ const ContactReducer = (state, action) => {
                 return profile.id !== action.payload.id
             })
 
-            console.log(filterContacts)
+            const resultContacts = filterContacts.map(contact => {
+                return { user: contact }
+            })
 
-            return {
-                ...state,
-                contatcs: [
-                    { name: 'Osman' }
-                ]
-            }
+            console.log(resultContacts)
 
+            console.log(state)
 
-        case 'EDIT_TO_CONTACT':
-            console.log("EDIT_TO_CONTACT", action.payload)
-            return {
-                ...state,
-                contacts: action.payload
-            }
+            return Object.assign(state, { contacts: resultContacts })
 
         default:
             return state;

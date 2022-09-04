@@ -12,7 +12,6 @@ export const ContactProvider = ({ children }) => {
         dispatch({
             type: "ADD_TO_TABLE",
             payload: [contact]
-
         })
     }
 
