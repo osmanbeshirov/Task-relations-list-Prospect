@@ -1,3 +1,5 @@
+
+
 export const initialState = {
     contacts: [],
 
@@ -13,6 +15,8 @@ const ContactReducer = (state, action) => {
                 // const newState = Object.assign({}, newUser, { actions: <><InfoCircleTwoTone /> <EditTwoTone /> <DeleteTwoTone onClick={deleteFromTable(newUser)} /> </> })
                 return newUser
             })
+
+          
 
             return {
                 ...state,
@@ -31,10 +35,6 @@ const ContactReducer = (state, action) => {
             const resultContacts = filterContacts.map(contact => {
                 return { user: contact }
             })
-
-            console.log(resultContacts)
-
-            console.log(state)
 
             return Object.assign(state, { contacts: resultContacts })
 

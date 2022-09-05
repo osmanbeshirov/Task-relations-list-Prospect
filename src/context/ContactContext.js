@@ -1,13 +1,25 @@
 import { createContext, useReducer } from "react";
 
+import { notification } from 'antd';
+
 import contactReducer, { initialState } from "./contactReducer";
+
 
 const ContactContext = createContext(initialState);
 
 export const ContactProvider = ({ children }) => {
     const [state, dispatch] = useReducer(contactReducer, initialState)
 
+    const openNotificationWithIcon = (type, messageTitle, contactDetails) => {
+        notification[type]({
+            message: messageTitle,
+            description:
+                `${contactDetails} uğurla əlavə edildi`
+        });
+    };
+
     const addToTable = (contact) => {
+        openNotificationWithIcon('success', 'Uğurlu əməliyyat', `${contact.user.name}  ${contact.user.surname}`)
 
         dispatch({
             type: "ADD_TO_TABLE",
@@ -22,10 +34,11 @@ export const ContactProvider = ({ children }) => {
         })
     }
 
+
     const data = {
         contacts: state.contacts,
         addToTable,
-        deleteFromTable
+        deleteFromTable,
 
     }
 

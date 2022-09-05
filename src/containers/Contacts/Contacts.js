@@ -7,8 +7,6 @@ import { Table } from 'antd';
 import { InfoCircleTwoTone, EditTwoTone, DeleteTwoTone } from '@ant-design/icons';
 
 import ContactContext from '../../context/ContactContext';
-import { render } from '@testing-library/react';
-
 
 export default function Contacts() {
 
@@ -19,9 +17,6 @@ export default function Contacts() {
 
         return contact.user;
     })
-
-    console.log(contacts);
-
 
     const columns = [
         {

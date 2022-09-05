@@ -6,7 +6,7 @@ import '../MainForm/mainForm.css'
 
 import ContactContext from '../../context/ContactContext';
 
-import useLocalStorage from '../../hooks/useLocalStorage';
+
 import { useNavigate } from 'react-router-dom';
 
 const layout = {
@@ -31,22 +31,19 @@ const validateMessages = {
 export default function MainForm() {
 
 
-    const { addToTable } = useContext(ContactContext)
+    const { addToTable, openNotificationWithIcon } = useContext(ContactContext)
+
+    // console.log(openNotificationWithIcon)
 
     const navigate = useNavigate()
 
-    // const [id, setId] = useLocalStorage('id', 0)
-
-    // const handleSubmit = () => {
-    //     setId(id + 1);
-
-    // }
-
     const onFinish = (values) => {
 
-        addToTable(values)
+        addToTable(values);
 
         navigate('/contacts', { replace: true })
+
+        openNotificationWithIcon('success')
     };
 
     return (
