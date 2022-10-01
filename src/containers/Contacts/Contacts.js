@@ -12,11 +12,22 @@ export default function Contacts() {
 
     const { contacts, deleteFromTable } = useContext(ContactContext)
 
-    const data = contacts.map(contact => {
-        Object.assign(contact.user, { actions: <><InfoCircleTwoTone /> <Link to='edit/5'><EditTwoTone /></Link>  <DeleteTwoTone onClick={() => deleteFromTable(contact.user)} /> </> })
 
-        return contact.user;
+    console.log(contacts)
+
+    const data = contacts.map((contact, index) => {
+        Object.assign(contact, { id: index + 1, key: index + 1, actions: <><InfoCircleTwoTone /> <Link to='edit/5'><EditTwoTone /></Link>  <DeleteTwoTone /> </> })
+
+        return contact;
     })
+
+    // const newData = data.map(contact => {
+    //     Object.assign(contact, { key: contact.id })
+
+    //     return contact;
+    // })
+
+
 
     const columns = [
         {
@@ -48,7 +59,6 @@ export default function Contacts() {
     ]
 
 
-
     // const data = [
     // {
     //     key: '1',
@@ -68,6 +78,7 @@ export default function Contacts() {
                 <Table className='contacts-table' columns={columns} dataSource={data} />
             </div>
         </div>
+
 
     )
 }

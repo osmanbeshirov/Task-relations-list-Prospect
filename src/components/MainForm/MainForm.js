@@ -30,20 +30,18 @@ const validateMessages = {
 
 export default function MainForm() {
 
+    const { addToTable } = useContext(ContactContext)
 
-    const { addToTable, openNotificationWithIcon } = useContext(ContactContext)
-
-    // console.log(openNotificationWithIcon)
 
     const navigate = useNavigate()
 
     const onFinish = (values) => {
 
-        addToTable(values);
+        // console.log(values.user)
+
+        addToTable(values.user);
 
         navigate('/contacts', { replace: true })
-
-        openNotificationWithIcon('success')
     };
 
     return (

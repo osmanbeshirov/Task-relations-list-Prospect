@@ -19,17 +19,10 @@ export const ContactProvider = ({ children }) => {
     };
 
     const addToTable = (contact) => {
-        openNotificationWithIcon('success', 'Uğurlu əməliyyat', `${contact.user.name}  ${contact.user.surname}`)
+        openNotificationWithIcon('success', 'Uğurlu əməliyyat', `${contact.name}  ${contact.surname}`)
 
         dispatch({
             type: "ADD_TO_TABLE",
-            payload: [contact]
-        })
-    }
-
-    const deleteFromTable = (contact) => {
-        dispatch({
-            type: "DELETE_FROM_TABLE",
             payload: contact
         })
     }
@@ -38,7 +31,6 @@ export const ContactProvider = ({ children }) => {
     const data = {
         contacts: state.contacts,
         addToTable,
-        deleteFromTable,
 
     }
 
