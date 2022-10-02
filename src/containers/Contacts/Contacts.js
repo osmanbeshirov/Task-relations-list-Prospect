@@ -8,25 +8,18 @@ import { InfoCircleTwoTone, EditTwoTone, DeleteTwoTone } from '@ant-design/icons
 
 import ContactContext from '../../context/ContactContext';
 
+
 export default function Contacts() {
 
-    const { contacts, deleteFromTable } = useContext(ContactContext)
-
+    const { contacts, removeFromTable } = useContext(ContactContext)
 
     console.log(contacts)
 
     const data = contacts.map((contact, index) => {
-        Object.assign(contact, { id: index + 1, key: index + 1, actions: <><InfoCircleTwoTone /> <Link to='edit/5'><EditTwoTone /></Link>  <DeleteTwoTone /> </> })
+        Object.assign(contact, { id: index + 1, key: index + 1, actions: <><InfoCircleTwoTone /> <Link to='edit/5'><EditTwoTone /></Link>  <DeleteTwoTone onClick={() => removeFromTable(contact)} /> </> })
 
         return contact;
     })
-
-    // const newData = data.map(contact => {
-    //     Object.assign(contact, { key: contact.id })
-
-    //     return contact;
-    // })
-
 
 
     const columns = [
@@ -78,7 +71,5 @@ export default function Contacts() {
                 <Table className='contacts-table' columns={columns} dataSource={data} />
             </div>
         </div>
-
-
     )
 }

@@ -37,8 +37,6 @@ export default function MainForm() {
 
     const onFinish = (values) => {
 
-        // console.log(values.user)
-
         addToTable(values.user);
 
         navigate('/contacts', { replace: true })
