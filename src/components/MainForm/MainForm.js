@@ -28,16 +28,23 @@ const validateMessages = {
 };
 /* eslint-enable no-template-curly-in-string */
 
-export default function MainForm() {
+export default function MainForm({ userDatas }) {
 
-    const { addToTable } = useContext(ContactContext)
+    const { addToTable, editContact } = useContext(ContactContext)
 
+    console.log(userDatas)
 
     const navigate = useNavigate()
 
     const onFinish = (values) => {
 
-        addToTable(values.user);
+        if (!userDatas) {
+            addToTable(values.user);
+        }
+        else {
+            editContact(values.user)
+        }
+
 
         navigate('/contacts', { replace: true })
     };
@@ -54,7 +61,7 @@ export default function MainForm() {
                         },
                     ]}
                 >
-                    <Input />
+                    <Input defaultValue={userDatas ? userDatas.name : null} />
                 </Form.Item>
                 <Form.Item
                     name={['user', 'surname']}
@@ -65,7 +72,7 @@ export default function MainForm() {
                         },
                     ]}
                 >
-                    <Input />
+                    <Input defaultValue={userDatas ? userDatas.surname : null} />
                 </Form.Item>
                 <Form.Item
                     name={['user', 'dadname']}
@@ -76,7 +83,7 @@ export default function MainForm() {
                         },
                     ]}
                 >
-                    <Input />
+                    <Input defaultValue={userDatas ? userDatas.dadname : null} />
                 </Form.Item>
 
                 <Form.Item
@@ -88,7 +95,7 @@ export default function MainForm() {
                         },
                     ]}
                 >
-                    <Input />
+                    <Input defaultValue={userDatas ? userDatas.email : null} />
                 </Form.Item>
 
             </div>
@@ -104,7 +111,7 @@ export default function MainForm() {
                         },
                     ]}>
 
-                    <Input.TextArea />
+                    <Input.TextArea defaultValue={userDatas ? userDatas.details : null} />
                 </Form.Item>
                 <Form.Item
                     initialValue={'IT mühəndis'}
@@ -117,7 +124,7 @@ export default function MainForm() {
                         },
                     ]}>
 
-                    <Select >
+                    <Select defaultActiveFirstOption={userDatas ? userDatas.specality : null}>
                         <Select.Option value="IT mühəndis">IT mühəndis</Select.Option>
                         <Select.Option value="Proyekt meneceri">Proyekt meneceri</Select.Option>
                         <Select.Option value="Data analitik">Data analitik</Select.Option>
@@ -133,7 +140,7 @@ export default function MainForm() {
                             type: 'radio', required: true
                         },
                     ]}>
-                    <Radio.Group>
+                    <Radio.Group defaultValue={userDatas ? userDatas.gender : null}>
                         <Radio value="man"> Man </Radio>
                         <Radio value="woman"> Woman </Radio>
                     </Radio.Group>
@@ -147,12 +154,12 @@ export default function MainForm() {
                             type: 'switch'
                         },
                     ]}>
-                    <Switch />
+                    <Switch defaultChecked={userDatas ? userDatas.updates : null} />
                 </Form.Item>
 
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
                     <Button type="primary" htmlType="submit">
-                        Əlaqəni yarat
+                        {userDatas ? 'Dəyişiklikləri yadda saxla' : 'Əlaqəni yarat'}
                     </Button>
                 </Form.Item>
 

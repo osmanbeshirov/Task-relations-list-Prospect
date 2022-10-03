@@ -36,11 +36,19 @@ export const ContactProvider = ({ children }) => {
         })
     }
 
+    const editContact = (contact) => {
+        dispatch({
+            type: "EDIT_CONTACT",
+            payload: contact
+        })
+    }
+
 
     const data = {
         contacts: state.contacts,
         addToTable,
-        removeFromTable
+        removeFromTable,
+        editContact
 
     }
 
