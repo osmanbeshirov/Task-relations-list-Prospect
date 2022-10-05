@@ -31,7 +31,7 @@ const validateMessages = {
 export default function MainForm({ userDatas }) {
 
     const { addToTable, editContact } = useContext(ContactContext)
-    
+
     const navigate = useNavigate()
 
     const onFinish = (values) => {
@@ -41,7 +41,7 @@ export default function MainForm({ userDatas }) {
         }
 
         else {
-            const editedContact = Object.assign(values.user, {id: userDatas.id, key: userDatas.key})
+            const editedContact = Object.assign(values.user, { id: userDatas.id, key: userDatas.key })
 
             editContact(editedContact)
         }
@@ -53,49 +53,58 @@ export default function MainForm({ userDatas }) {
         <Form  {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
             <div className='left-form'>
                 <Form.Item
+                    initialValue={userDatas ? userDatas.name : null}
+
                     name={['user', 'name']}
                     label="Ad"
                     rules={[
                         {
-                            required: true,
+                            required: userDatas ? false : true,
                         },
                     ]}
                 >
-                    <Input defaultValue={userDatas ? userDatas.name : null} />
+                    <Input />
                 </Form.Item>
                 <Form.Item
+                    initialValue={userDatas ? userDatas.surname : null}
+
                     name={['user', 'surname']}
                     label="Soyad"
                     rules={[
                         {
-                            required: true,
+                            required: userDatas ? false : true,
                         },
                     ]}
                 >
-                    <Input defaultValue={userDatas ? userDatas.surname : null} />
+                    <Input />
                 </Form.Item>
                 <Form.Item
+
+                    initialValue={userDatas ? userDatas.dadname : null}
+
                     name={['user', 'dadname']}
                     label="Ata adı"
                     rules={[
                         {
-                            required: true,
+                            required: userDatas ? false : true,
                         },
                     ]}
                 >
-                    <Input defaultValue={userDatas ? userDatas.dadname : null} />
+                    <Input />
                 </Form.Item>
 
                 <Form.Item
+                    initialValue={userDatas ? userDatas.email : null}
+
                     name={['user', 'email']}
                     label="E-poçt"
                     rules={[
                         {
-                            type: 'email', required: true
+                            type: 'email', required: userDatas ? false : true,
                         },
                     ]}
                 >
-                    <Input defaultValue={userDatas ? userDatas.email : null} />
+                    <Input />
                 </Form.Item>
 
             </div>
@@ -103,28 +112,30 @@ export default function MainForm({ userDatas }) {
             <div>
 
                 <Form.Item
+                    initialValue={userDatas ? userDatas.details : null}
+
                     name={['user', 'details']}
                     label="Əlavə məlumat"
                     rules={[
                         {
-                            required: true
+                            required: userDatas ? false : true,
                         },
                     ]}>
 
-                    <Input.TextArea defaultValue={userDatas ? userDatas.details : null} />
+                    <Input.TextArea />
                 </Form.Item>
                 <Form.Item
-                    initialValue={'IT mühəndis'}
+                    initialValue={userDatas ? userDatas.specality : 'IT mühəndis'}
 
                     name={['user', 'specality']}
                     label="Vəzifə"
                     rules={[
                         {
-                            type: 'select', required: true
+                            type: 'select', required: userDatas ? false : true,
                         },
                     ]}>
-
-                    <Select defaultActiveFirstOption={userDatas ? userDatas.specality : null}>
+                    {/* defaultActiveFirstOption={userDatas ? userDatas.specality : null} */}
+                    <Select  >
                         <Select.Option value="IT mühəndis">IT mühəndis</Select.Option>
                         <Select.Option value="Proyekt meneceri">Proyekt meneceri</Select.Option>
                         <Select.Option value="Data analitik">Data analitik</Select.Option>
@@ -133,20 +144,22 @@ export default function MainForm({ userDatas }) {
                 </Form.Item>
 
                 <Form.Item
+                    initialValue={userDatas ? userDatas.gender : null}
                     name={['user', 'gender']}
                     label="Cins"
                     rules={[
                         {
-                            type: 'radio', required: true
+                            type: 'radio', required: userDatas ? false : true
                         },
                     ]}>
-                    <Radio.Group defaultValue={userDatas ? userDatas.gender : null}>
+                    <Radio.Group >
                         <Radio value="man"> Man </Radio>
                         <Radio value="woman"> Woman </Radio>
                     </Radio.Group>
                 </Form.Item>
 
                 <Form.Item valuePropName="checked"
+                    initialValue={userDatas ? userDatas.updates : null}
                     name={['user', 'updates']}
                     label="Yeniliklər"
                     rules={[
@@ -154,7 +167,8 @@ export default function MainForm({ userDatas }) {
                             type: 'switch'
                         },
                     ]}>
-                    <Switch defaultChecked={userDatas ? userDatas.updates : null} />
+                    <Switch />
+                    {/* defaultChecked={userDatas ? userDatas.updates : null} */}
                 </Form.Item>
 
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
