@@ -68,7 +68,10 @@ export default function Contacts() {
         <div className='contacts'>
             <div className='contacts-main'>
                 <h1 className='contacts-header'>Əlaqələr siyahısı</h1>
-                <Table className='contacts-table' columns={columns} dataSource={data} />
+
+                {data.length > 0 ? <Table className='contacts-table' columns={columns} dataSource={data} /> : <h1>Melumat yoxdur</h1>}
+
+
             </div>
         </div>
     )
