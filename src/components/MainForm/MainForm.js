@@ -31,20 +31,20 @@ const validateMessages = {
 export default function MainForm({ userDatas }) {
 
     const { addToTable, editContact } = useContext(ContactContext)
-
-    console.log(userDatas)
-
+    
     const navigate = useNavigate()
 
     const onFinish = (values) => {
 
-        if (!userDatas) {
+        if (typeof userDatas === 'undefined') {
             addToTable(values.user);
         }
-        else {
-            editContact(values.user)
-        }
 
+        else {
+            const editedContact = Object.assign(values.user, {id: userDatas.id, key: userDatas.key})
+
+            editContact(editedContact)
+        }
 
         navigate('/contacts', { replace: true })
     };

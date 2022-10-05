@@ -37,6 +37,7 @@ export const ContactProvider = ({ children }) => {
     }
 
     const editContact = (contact) => {
+        openNotificationWithIcon('info', 'Uğurlu əməliyyat', 'redaktə olundu', `${contact.name}  ${contact.surname}`)
         dispatch({
             type: "EDIT_CONTACT",
             payload: contact
