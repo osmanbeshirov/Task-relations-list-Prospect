@@ -7,6 +7,7 @@ import { Table } from 'antd';
 import { InfoCircleTwoTone, EditTwoTone, DeleteTwoTone } from '@ant-design/icons';
 
 import ContactContext from '../../context/ContactContext';
+import NotFound from '../../components/NotFound/NotFound';
 
 
 export default function Contacts() {
@@ -69,7 +70,7 @@ export default function Contacts() {
             <div className='contacts-main'>
                 <h1 className='contacts-header'>Əlaqələr siyahısı</h1>
 
-                {data.length > 0 ? <Table className='contacts-table' columns={columns} dataSource={data} /> : <h1>Melumat yoxdur</h1>}
+                {data.length > 0 ? <Table className='contacts-table' columns={columns} dataSource={data} /> : <NotFound />}
 
 
             </div>
