@@ -14,13 +14,15 @@ export default function Contacts() {
 
     const { contacts, removeFromTable } = useContext(ContactContext)
 
-    console.log(contacts)
+
 
     const data = contacts.map((contact, index) => {
         Object.assign(contact, { id: index + 1, key: index + 1, actions: <><InfoCircleTwoTone /> <Link to={`edit/${contact.id}`}><EditTwoTone /></Link>  <DeleteTwoTone onClick={() => removeFromTable(contact)} /> </> })
 
         return contact;
     })
+
+    console.log(data)
 
 
     const columns = [
