@@ -4,7 +4,7 @@ import { Button, Form, Input, Select, Radio, Switch } from 'antd';
 
 import '../MainForm/mainForm.css'
 
-import ContactContext from '../../context/ContactContext';
+import ContactContext, { openNotificationWithIcon } from '../../context/ContactContext';
 
 
 import { useNavigate } from 'react-router-dom';
@@ -38,15 +38,33 @@ export default function MainForm({ userDatas }) {
 
         if (typeof userDatas === 'undefined') {
             addToTable(values.user);
+
+            navigate('/contacts', { replace: true })
         }
 
         else {
+
             const editedContact = Object.assign(values.user, { id: userDatas.id, key: userDatas.key })
 
-            editContact(editedContact)
+            if (userDatas.name === editedContact.name && userDatas.surname === editedContact.surname &&
+                userDatas.dadname === editedContact.dadname && userDatas.email === editedContact.email &&
+                userDatas.gender === editedContact.gender && userDatas.specality === editedContact.specality &&
+                userDatas.updates === editedContact.updates) {
+
+                openNotificationWithIcon('error', 'Uğursuz əməliyyat', 'Heç bir məlumatda dəyişiklik olunmadı...', '')
+            }
+            else {
+                editContact(editedContact);
+                openNotificationWithIcon('info', 'Uğurlu əməliyyat', 'redaktə olundu', `${editedContact.name}  ${editedContact.surname}`)
+                navigate('/contacts', { replace: true })
+            }
+
+            // console.log(userDatas)
+            // console.log(editedContact)
+
         }
 
-        navigate('/contacts', { replace: true })
+
     };
 
     return (

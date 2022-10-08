@@ -7,16 +7,16 @@ import contactReducer, { initialState } from "./contactReducer";
 
 const ContactContext = createContext(initialState);
 
+export const openNotificationWithIcon = (type, messageTitle, messageContent, contactDetails) => {
+    notification[type]({
+        message: messageTitle,
+        description:
+            `${contactDetails} ${messageContent}`
+    });
+};
+
 export const ContactProvider = ({ children }) => {
     const [state, dispatch] = useReducer(contactReducer, initialState)
-
-    const openNotificationWithIcon = (type, messageTitle, messageContent, contactDetails) => {
-        notification[type]({
-            message: messageTitle,
-            description:
-                `${contactDetails} ${messageContent}`
-        });
-    };
 
     const addToTable = (contact) => {
         openNotificationWithIcon('success', 'Uğurlu əməliyyat', 'uğurla əlavə edildi', `${contact.name}  ${contact.surname}`)
@@ -37,7 +37,7 @@ export const ContactProvider = ({ children }) => {
     }
 
     const editContact = (contact) => {
-        openNotificationWithIcon('info', 'Uğurlu əməliyyat', 'redaktə olundu', `${contact.name}  ${contact.surname}`)
+
         dispatch({
             type: "EDIT_CONTACT",
             payload: contact

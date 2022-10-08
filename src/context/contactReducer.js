@@ -23,6 +23,7 @@ const ContactReducer = (state, action) => {
                         details: action.payload.details, gender: action.payload.gender,
                         specality: action.payload.specality, updates: action.payload.updates
                     })
+
                 }
                 return contact;
             })

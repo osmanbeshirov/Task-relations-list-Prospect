@@ -14,6 +14,7 @@ export default function EditContacts() {
 
   const updatedContacts = contacts.filter(contact => contact.id === Number(params.id))
 
+
   return (
     <div className='new-contacts'>
       <h1 className='title'>Düzəliş etmə səhifəsi</h1>
