@@ -1,0 +1,33 @@
+@charset "UTF-8";
+.ant-modal-content {
+  text-align: center;
+}
+.ant-modal-content .ant-modal-header {
+  background-color: #1890ff;
+}
+.ant-modal-content .ant-modal-header .ant-modal-title {
+  font-size: 25px;
+  color: rgb(40, 39, 39);
+}
+.ant-modal-content .list-info {
+  list-style-type: none;
+}
+.ant-modal-content .list-info .list-info_item {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d6d2d2;
+}
+.ant-modal-content .ant-modal-footer {
+  background-color: #d5caca;
+}
+.ant-modal-content .ant-modal-footer .ant-btn-default span {
+  display: none;
+}
+.ant-modal-content .ant-modal-footer .ant-btn-default::after {
+  content: "Çıxış";
+}
+.ant-modal-content .ant-modal-footer .ant-btn-default::after:hover {
+  color: red;
+}/*# sourceMappingURL=userModal.css.map */

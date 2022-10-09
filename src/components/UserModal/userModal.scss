@@ -1,0 +1,47 @@
+.ant-modal-content {
+
+
+    text-align: center;
+
+    .ant-modal-header {
+        background-color: #1890ff;
+
+        .ant-modal-title {
+            font-size: 25px;
+            color: rgb(40, 39, 39);
+
+        }
+    }
+
+    .list-info {
+        list-style-type: none;
+
+        .list-info_item {
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #d6d2d2;
+
+        }
+    }
+
+    .ant-modal-footer {
+
+        background-color: #d5caca;
+
+        .ant-btn-default span {
+            display: none;
+        }
+
+        .ant-btn-default::after {
+            content: "Çıxış";
+
+            &:hover {
+                color: red;
+            }
+        }
+
+
+    }
+}

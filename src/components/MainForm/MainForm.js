@@ -172,7 +172,7 @@ export default function MainForm({ userDatas }) {
                 </Form.Item>
 
                 <Form.Item valuePropName="checked"
-                    initialValue={userDatas ? userDatas.updates : null}
+                    initialValue={userDatas ? userDatas.updates : false}
                     name={['user', 'updates']}
                     label="Yeniliklər"
                     rules={[
