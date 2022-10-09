@@ -22,6 +22,7 @@ export default function Contacts({ children }) {
         return contact;
     })
 
+
     const columns = [
         {
             title: 'Ad',

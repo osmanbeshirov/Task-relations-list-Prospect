@@ -13,13 +13,14 @@ const ContactReducer = (state, action) => {
 
             return { contacts: updatedContacts }
         case "EDIT_CONTACT":
+            
             state.contacts.map(contact => {
 
                 if (contact.id === action.payload.id) {
 
                     return Object.assign(contact, {
                         name: action.payload.name, surname: action.payload.surname,
-                        dadname: action.payload.dadname, emails: action.payload.email,
+                        dadname: action.payload.dadname, email: action.payload.email,
                         details: action.payload.details, gender: action.payload.gender,
                         specality: action.payload.specality, updates: action.payload.updates
                     })

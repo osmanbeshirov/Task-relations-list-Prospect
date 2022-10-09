@@ -49,7 +49,7 @@ export default function MainForm({ userDatas }) {
             if (userDatas.name === editedContact.name && userDatas.surname === editedContact.surname &&
                 userDatas.dadname === editedContact.dadname && userDatas.email === editedContact.email &&
                 userDatas.gender === editedContact.gender && userDatas.specality === editedContact.specality &&
-                userDatas.updates === editedContact.updates) {
+                userDatas.updates === editedContact.updates && userDatas.details === editedContact.details) {
 
                 openNotificationWithIcon('error', 'Uğursuz əməliyyat', 'Heç bir məlumatda dəyişiklik olunmadı...', '')
             }
