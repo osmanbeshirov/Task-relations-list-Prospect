@@ -1,5 +1,6 @@
 export const initialState = {
     contacts: [],
+    selectedUser: []
 }
 
 const ContactReducer = (state, action) => {
@@ -12,7 +13,6 @@ const ContactReducer = (state, action) => {
 
             return { contacts: updatedContacts }
         case "EDIT_CONTACT":
-
             state.contacts.map(contact => {
 
                 if (contact.id === action.payload.id) {
@@ -23,7 +23,6 @@ const ContactReducer = (state, action) => {
                         details: action.payload.details, gender: action.payload.gender,
                         specality: action.payload.specality, updates: action.payload.updates
                     })
-
                 }
                 return contact;
             })

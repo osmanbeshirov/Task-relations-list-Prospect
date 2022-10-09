@@ -47,10 +47,10 @@ export const ContactProvider = ({ children }) => {
 
     const data = {
         contacts: state.contacts,
+        selectedUser: state.selectedUser,
         addToTable,
         removeFromTable,
-        editContact
-
+        editContact,
     }
 
     return <ContactContext.Provider value={data}>{children}</ContactContext.Provider>

@@ -58,12 +58,7 @@ export default function MainForm({ userDatas }) {
                 openNotificationWithIcon('info', 'Uğurlu əməliyyat', 'redaktə olundu', `${editedContact.name}  ${editedContact.surname}`)
                 navigate('/contacts', { replace: true })
             }
-
-            // console.log(userDatas)
-            // console.log(editedContact)
-
         }
-
 
     };
 
