@@ -4,7 +4,6 @@ import { notification } from 'antd';
 
 import contactReducer, { initialState } from "./contactReducer";
 
-
 const ContactContext = createContext(initialState);
 
 export const openNotificationWithIcon = (type, messageTitle, messageContent, contactDetails) => {
@@ -28,6 +27,7 @@ export const ContactProvider = ({ children }) => {
     }
 
     const removeFromTable = (contact) => {
+        
         openNotificationWithIcon('error', 'Uğurlu əməliyyat', 'uğurla siyahıdan çıxarıldı', `${contact.name}  ${contact.surname}`)
 
         dispatch({

@@ -52,11 +52,12 @@ export default function UserModal({ children, currentUserDatas }) {
                 style={{
                     top: 100,
                 }}
+                cancelText='Çıxış'
                 visible={modal1Open}
                 onOk={() => setModal1Open(false)}
                 onCancel={() => setModal1Open(false)}
             >
-               
+
                 {newKeys.map((item, index) => (
                     <div key={index}>
                         <ul className='list-info'>

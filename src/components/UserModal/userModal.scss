@@ -30,17 +30,17 @@
 
         background-color: #d5caca;
 
-        .ant-btn-default span {
-            display: none;
-        }
+        // .ant-btn-default span {
+        //     display: none;
+        // }
 
-        .ant-btn-default::after {
-            content: "Çıxış";
+        // .ant-btn-default::after {
+        //     content: "Çıxış";
 
-            &:hover {
-                color: red;
-            }
-        }
+        //     &:hover {
+        //         color: red;
+        //     }
+        // }
 
 
     }

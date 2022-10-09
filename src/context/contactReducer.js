@@ -26,7 +26,6 @@ const ContactReducer = (state, action) => {
                 }
                 return contact;
             })
-
         default:
             return state;
     }

@@ -162,12 +162,12 @@ export default function MainForm({ userDatas }) {
                     label="Cins"
                     rules={[
                         {
-                            type: 'radio', required: userDatas ? false : true
+                            required: userDatas ? false : true
                         },
                     ]}>
                     <Radio.Group >
-                        <Radio value="man"> Man </Radio>
-                        <Radio value="woman"> Woman </Radio>
+                        <Radio value="man">Kişi</Radio>
+                        <Radio value="woman"> Qadın </Radio>
                     </Radio.Group>
                 </Form.Item>
 
@@ -181,7 +181,7 @@ export default function MainForm({ userDatas }) {
                         },
                     ]}>
                     <Switch />
-                    {/* defaultChecked={userDatas ? userDatas.updates : null} */}
+
                 </Form.Item>
 
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
