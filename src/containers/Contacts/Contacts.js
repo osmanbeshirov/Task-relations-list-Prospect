@@ -12,7 +12,7 @@ import ContactContext from '../../context/ContactContext';
 import NotFound from '../../components/NotFound/NotFound';
 import ConfirmModal from '../../components/ConfirmModal/ConfirmModal';
 
-export default function Contacts({ children }) {
+export default function Contacts() {
 
     const { contacts } = useContext(ContactContext)
     
